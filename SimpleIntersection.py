@@ -1,7 +1,15 @@
 import nltk
 import numpy as np
 
-raw_sentences = list(nltk.corpus.gutenberg.sents("burgess-busterbrown.txt"))
+raw_sentences = []
+#raw_sentences = list(nltk.corpus.gutenberg.sents("burgess-busterbrown.txt"))
+raw = ""
+with open('./RawText/EconomicTimes.txt','r') as f:
+    raw = f.read()
+for sent in nltk.sent_tokenize(raw):
+    words = nltk.word_tokenize(sent)
+    raw_sentences.append(words)
+    
 print(len(raw_sentences))
 sentences = []
 
@@ -10,9 +18,9 @@ for sentence in raw_sentences:
     if len(sentence) > 6:
         sentences.append(sentence)
         
-sentences = sentences[:400]
+#sentences = sentences[:400]
 sentCount = len(sentences)
-print(sentCount)
+print('Number of sentences:',sentCount)
 
 # Convert to lowercase and drop punctuation
 for i in range(sentCount):
@@ -29,8 +37,8 @@ def intersection(sent1,sent2):
     
     return len(words1.intersection(words2))/avgLen
 
-c = 0
-for sentences in paragraphs:
+for paragraph in range(len(paragraphs)):
+    sentences = paragraphs[paragraph]
     sentenceRank = [0 for _ in range(PARAGRAPH_SIZE)]    
     
     for i in range(PARAGRAPH_SIZE):        
@@ -38,9 +46,8 @@ for sentences in paragraphs:
             if i != j:
                 sentenceRank[i] += intersection(sentences[i],sentences[j])
                 
-    chosen = int(np.argmax(sentenceRank))
-    print(' '.join(sentences[chosen]))
-    #print(str(max(sentenceRank)) +' '+ str(c))
-    c+=1
-
-
+    choice = int(np.argmax(sentenceRank))
+    #print(choice,' '.join(sentences[choice]))
+    index = paragraph*PARAGRAPH_SIZE+choice
+    #print(paragraph,PARAGRAPH_SIZE,choice)
+    print(index,' '.join(raw_sentences[index]))
