@@ -3,13 +3,15 @@ import collections
 import matplotlib.pyplot as plt
 import DatabaseGeneration as dg
 import adjustText as at
+import nltk
 
-ITERATIONS = 100
+ITERATIONS = 1000
+FILENAME = './RawText/EconomicTimes.txt'
 px = [0,1,2]
 py = [0,1,0]
 
 # Labeled dataset, each word is replaced with its bag of words index
-wordList,wordIndexes = dg.getDatabase('./RawText/EconomicTimes.txt')
+wordList,wordIndexes = dg.getDatabase(FILENAME)
 
 n = len(wordIndexes) # Number of documents
 k = 3 # Number of topics
@@ -30,8 +32,7 @@ a = np.matrix(np.zeros((n,k)))
 b = np.matrix(np.zeros((k,v)))
 
 def rouletteArg(vector):
-    # Uncomment the next line for greedy
-    return np.argmax(vector)
+    #return np.argmax(vector)
     vector /= np.sum(vector)
     val = np.random.uniform()
     #print(vector)
@@ -97,6 +98,15 @@ for iteration in range(ITERATIONS):
     plt.plot(x,y,'bo',alpha=((1.0-iteration/ITERATIONS)*.5))
 
     print(iteration,cost)
+
+# Print the summary
+chosenDocuments = np.argmax(a,0).tolist()[0]
+chosenDocuments.sort()
+with open(FILENAME,'r') as f:
+    raw = f.read()
+    sents = nltk.sent_tokenize(raw)
+    for choice in chosenDocuments:
+        print(sents[choice])
 
 plt.figure(1)
 fig = plt.gcf()
