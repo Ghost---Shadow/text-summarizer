@@ -11,9 +11,11 @@ from nltk.corpus import gutenberg
 rawWords = gutenberg.words(fileids=['burgess-busterbrown.txt'])
 rawSentences = gutenberg.sents(fileids=['burgess-busterbrown.txt'])
 '''
+FILENAME = './RawText/EconomicTimes.txt'
+#FILENAME = './RawText/Multidocument.txt'
 
 raw = ""
-with open('./RawText/EconomicTimes.txt','r') as f:
+with open(FILENAME,'r') as f:
     raw = f.read()
 
 rawWords = []

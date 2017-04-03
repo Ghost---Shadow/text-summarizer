@@ -5,8 +5,9 @@ import DatabaseGeneration as dg
 import adjustText as at
 import nltk
 
-ITERATIONS = 1000
-FILENAME = './RawText/EconomicTimes.txt'
+ITERATIONS = 250
+#FILENAME = './RawText/EconomicTimes.txt'
+FILENAME = './RawText/Multidocument.txt'
 px = [0,1,2]
 py = [0,1,0]
 
@@ -130,7 +131,7 @@ for i in range(len(x)):
     #print(xi,yi+yPad,wordList[i])
     texts.append(plt.text(xi,yi+yPad,str(wordList[i]),fontsize=10))
 
-at.adjust_text(texts,force_text=.05)
+#at.adjust_text(texts,force_text=.05)
 
 plt.plot(px,py,'k-')
 

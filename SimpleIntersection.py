@@ -4,8 +4,12 @@ import numpy as np
 raw_sentences = []
 #raw_sentences = list(nltk.corpus.gutenberg.sents("burgess-busterbrown.txt"))
 raw = ""
-with open('./RawText/EconomicTimes.txt','r') as f:
+#FILENAME = './RawText/EconomicTimes.txt'
+FILENAME = './RawText/Multidocument.txt'
+
+with open(FILENAME,'r') as f:
     raw = f.read()
+    
 for sent in nltk.sent_tokenize(raw):
     words = nltk.word_tokenize(sent)
     raw_sentences.append(words)
@@ -41,8 +45,8 @@ for paragraph in range(len(paragraphs)):
     sentences = paragraphs[paragraph]
     sentenceRank = [0 for _ in range(PARAGRAPH_SIZE)]    
     
-    for i in range(PARAGRAPH_SIZE):        
-        for j in range(PARAGRAPH_SIZE):
+    for i in range(len(sentences)):        
+        for j in range(len(sentences)):
             if i != j:
                 sentenceRank[i] += intersection(sentences[i],sentences[j])
                 
