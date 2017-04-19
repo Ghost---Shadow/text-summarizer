@@ -6,8 +6,8 @@ import adjustText as at
 import nltk
 
 ITERATIONS = 250
-#FILENAME = './RawText/EconomicTimes.txt'
-FILENAME = './RawText/Multidocument.txt'
+FILENAME = './RawText/EconomicTimes.txt'
+#FILENAME = './RawText/Multidocument.txt'
 px = [0,1,2]
 py = [0,1,0]
 

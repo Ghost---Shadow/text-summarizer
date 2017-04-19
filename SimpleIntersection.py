@@ -4,8 +4,8 @@ import numpy as np
 raw_sentences = []
 #raw_sentences = list(nltk.corpus.gutenberg.sents("burgess-busterbrown.txt"))
 raw = ""
-#FILENAME = './RawText/EconomicTimes.txt'
-FILENAME = './RawText/Multidocument.txt'
+FILENAME = './RawText/EconomicTimes.txt'
+#FILENAME = './RawText/Multidocument.txt'
 
 with open(FILENAME,'r') as f:
     raw = f.read()
