@@ -1,25 +1,3 @@
-                     Copyright 1996 Times Mirror Company   
-                               Los Angeles Times
-
-                    October 28, 1996, Monday,  Home Edition
-
-SECTION: Business; Part D; Page 1; Financial Desk
-
-LENGTH: 1632 words
-
-HEADLINE: THE CUTTING EDGE; 
-IMPROBABLE INSPIRATION; 
-THE FUTURE OF SOFTWARE MAY LIE IN THE OBSCURE THEORIES OF AN 18TH
-CENTURY CLERIC
-NAMED THOMAS BAYES
-
-BYLINE: LESLIE HELM, TIMES STAFF WRITER 
-
-DATELINE: SEATTLE
-
-BODY:
-
-
    When Microsoft Senior Vice President Steve Ballmer first heard his
 company was planning to make a huge investment in an Internet service
 offering movie reviews and local entertainment information in major
@@ -239,13 +217,5 @@ so customers can see for themselves what the likely problems are. He
 believes auto makers will soon build Bayesian nets into cars that
 predict when various components of a car need to be repaired or
 replaced.
-
-GRAPHIC: PHOTO: UCLA professor Judea Pearl wrote early text on Bayesian
-networks.  PHOTOGRAPHER: ANACLETO RAPPING / Los Angeles Times
-GRAPHIC-DRAWING:
-(...) Robert Burns / Los Angeles Times
-                      Los Angeles Times, October 28, 1996
-
-LANGUAGE: English
 
 

@@ -1,0 +1,14 @@
+   When Microsoft Senior Vice President Steve Ballmer first heard his
+company was planning to make a huge investment in an Internet service
+offering movie reviews and local entertainment information in major
+cities across the nation, he went to Chairman Bill Gates with his
+concerns.When Microsoft in 1993 hired Eric Horvitz, David Heckerman and Jack
+Breese, pioneers in the development of Bayesian systems, colleagues in
+the field were surprised..Thomas Bayes, who
+wrote an essay, posthumously published in 1763, that offered a
+mathematical formula for calculating probabilities among several
+variables that are causally related but for which--unlike calculating
+the probability of a coin landing on heads or tails--the relationships
+can't easily be derived by experimentation.Credit card companies, for
+example, began routinely using neural networks to pick out transactions
+that don't look right based on a consumer's past behavior."They've given a boost to the whole area."

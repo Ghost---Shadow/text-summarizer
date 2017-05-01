@@ -6,8 +6,10 @@ import adjustText as at
 import nltk
 
 ITERATIONS = 250
-FILENAME = './RawText/EconomicTimes.txt'
+#FILENAME = './RawText/EconomicTimes.txt'
 #FILENAME = './RawText/Multidocument.txt'
+FILENAME = './RawText/1/raw.txt'
+OUTPUT = './RawText/1/S_Lda.txt'
 px = [0,1,2]
 py = [0,1,0]
 
@@ -97,17 +99,23 @@ for iteration in range(ITERATIONS):
     x = b.T * np.matrix(px).T
     y = b.T * np.matrix(py).T
     plt.plot(x,y,'bo',alpha=((1.0-iteration/ITERATIONS)*.5))
-
+    
     print(iteration,cost)
 
 # Print the summary
 chosenDocuments = np.argmax(a,0).tolist()[0]
 chosenDocuments.sort()
+dump = ''
 with open(FILENAME,'r') as f:
     raw = f.read()
     sents = nltk.sent_tokenize(raw)
     for choice in chosenDocuments:
+        dump += sents[choice]
         print(sents[choice])
+
+with open(OUTPUT,'w') as f:
+    f.write(dump)
+
 
 plt.figure(1)
 fig = plt.gcf()
@@ -139,5 +147,8 @@ plt.figure(3)
 fig = plt.gcf()
 fig.canvas.set_window_title('Cost Function')
 plt.plot(costs)
+
+
 plt.show()
+
 

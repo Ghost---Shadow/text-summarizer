@@ -11,8 +11,10 @@ from nltk.corpus import gutenberg
 rawWords = gutenberg.words(fileids=['burgess-busterbrown.txt'])
 rawSentences = gutenberg.sents(fileids=['burgess-busterbrown.txt'])
 '''
-FILENAME = './RawText/EconomicTimes.txt'
+#FILENAME = './RawText/EconomicTimes.txt'
 #FILENAME = './RawText/Multidocument.txt'
+FILENAME = './RawText/1/raw.txt'
+OUTPUT = './RawText/1/S_Freq.txt'
 
 raw = ""
 with open(FILENAME,'r') as f:
@@ -48,7 +50,7 @@ for sent in rawSentences:
     else:
         sentences.append([])
 
-NUMBER_OF_LINES_TO_EXTRACT = int(len(sentences)*.5)
+NUMBER_OF_LINES_TO_EXTRACT = 5
 
 print("Total sentences:",len(sentences))
 
@@ -113,7 +115,13 @@ for iteration in range(NUMBER_OF_LINES_TO_EXTRACT):
 # Print the summary
 choices = list(choices)
 choices.sort()
+dump = ''
 for choice in choices:
-    print(choice," ".join(rawSentences[choice]))
+    line = " ".join(rawSentences[choice])
+    dump += line
+    print(choice,line)
+
+with open(OUTPUT,'w') as f:
+    f.write(dump)
 
 plt.show()

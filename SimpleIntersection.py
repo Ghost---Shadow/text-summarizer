@@ -4,8 +4,10 @@ import numpy as np
 raw_sentences = []
 #raw_sentences = list(nltk.corpus.gutenberg.sents("burgess-busterbrown.txt"))
 raw = ""
-FILENAME = './RawText/EconomicTimes.txt'
+#FILENAME = './RawText/EconomicTimes.txt'
 #FILENAME = './RawText/Multidocument.txt'
+FILENAME = './RawText/1/raw.txt'
+OUTPUT = './RawText/1/S_cosine.txt'
 
 with open(FILENAME,'r') as f:
     raw = f.read()
@@ -31,7 +33,7 @@ for i in range(sentCount):
     words = [w.lower() for w in sentences[i] if w.isalnum()]
     sentences[i] = words
 
-PARAGRAPH_SIZE = 5
+PARAGRAPH_SIZE = int(sentCount/4)
 paragraphs = [sentences[i:i+PARAGRAPH_SIZE] for i in range(0,sentCount,PARAGRAPH_SIZE)]
 #  f(s1, s2) = |{w | w in s1 and w in s2}| / ((|s1| + |s2|) / 2)
 def intersection(sent1,sent2):    
@@ -41,6 +43,7 @@ def intersection(sent1,sent2):
     
     return len(words1.intersection(words2))/avgLen
 
+dump = ''
 for paragraph in range(len(paragraphs)):
     sentences = paragraphs[paragraph]
     sentenceRank = [0 for _ in range(PARAGRAPH_SIZE)]    
@@ -54,4 +57,9 @@ for paragraph in range(len(paragraphs)):
     #print(choice,' '.join(sentences[choice]))
     index = paragraph*PARAGRAPH_SIZE+choice
     #print(paragraph,PARAGRAPH_SIZE,choice)
-    print(index,' '.join(raw_sentences[index]))
+    line = ' '.join(raw_sentences[index])
+    dump += line
+    print(index,line)
+
+with open(OUTPUT,'w') as f:
+    f.write(dump)
